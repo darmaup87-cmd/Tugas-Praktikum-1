@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Biodata anggota Kelompok 6 Desain UI/UX PemWeb, kelas TI01.">
+  <title>Biodata Kelompok 6 | Desain UI/UX PemWeb</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #19344b;
+      --muted: #657b8c;
+      --paper: #f3f8fc;
+      --card: #ffffff;
+      --line: #dce9f2;
+      --blue: #397fae;
+      --sky: #e8f4fb;
+      --accent: #65a9d1;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 92% 6%, rgb(189 224 244 / 52%), transparent 29rem),
+        radial-gradient(ellipse at 5% 52%, rgb(222 239 249 / 58%), transparent 26rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .page-shell {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      padding: 25px 0;
+      border-bottom: 1px solid var(--line);
+      background: rgb(255 255 255 / 78%);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--blue);
+      font-size: .9rem;
+      font-weight: 750;
+      letter-spacing: .04em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      font-size: .8rem;
+    }
+
+    main { padding: 60px 0 72px; }
+
+    .intro {
+      max-width: 720px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 13px;
+      color: var(--blue);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 17px;
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      letter-spacing: -.055em;
+      line-height: 1.05;
+    }
+
+    .intro-copy {
+      max-width: 580px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .member-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: 0 10px 28px rgb(49 100 137 / 9%);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgb(49 100 137 / 14%);
+    }
+
+    .member-photo {
+      display: block;
+      width: 100%;
+      height: 230px;
+      background: var(--sky);
+      object-fit: cover;
+    }
+
+    .member-card:nth-child(1) .member-photo { object-position: center 38%; }
+    .member-card:nth-child(2) .member-photo { object-position: center 100%; }
+    .member-card:nth-child(3) .member-photo { object-position: center 43%; }
+    .member-card:nth-child(4) .member-photo { object-position: center 56%; }
+    .member-card:nth-child(5) .member-photo { object-position: center 52%; }
+
+    .member-content { padding: 19px 20px 21px; }
+
+    .member-number {
+      display: inline-block;
+      margin-bottom: 9px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--sky);
+      color: var(--blue);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    h2 {
+      margin-bottom: 13px;
+      font-size: 1.2rem;
+      letter-spacing: -.025em;
+      line-height: 1.25;
+    }
+
+    .member-details {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 11px;
+      margin: 0;
+      font-size: .91rem;
+    }
+
+    .member-details dt { color: var(--muted); }
+    .member-details dd { margin: 0; font-weight: 600; }
+
+    .dream {
+      margin: 15px 0 0;
+      padding: 11px 13px;
+      border-radius: 11px;
+      background: var(--sky);
+      color: var(--blue);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .dream span {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .site-footer {
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    .site-footer p { margin: 0; }
+
+    @media (max-width: 760px) {
+      .member-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      .page-shell { width: min(100% - 28px, 440px); }
+      .site-header { padding: 18px 0; }
+      main { padding: 54px 0 64px; }
+      .intro { margin-bottom: 32px; }
+      .member-grid { grid-template-columns: 1fr; gap: 17px; }
+      .member-photo { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="page-shell">
+      <a class="brand" href="#beranda" aria-label="Kelompok 6, kembali ke atas">
+        <span class="brand-mark" aria-hidden="true">06</span>
+        <span>DESAIN UI/UX PEMWEB · TI01</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="beranda" class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Praktikum Mandiri 01 · Kelompok 6</p>
+      <h1 id="page-title">Kenalan dengan kami.</h1>
+      <p class="intro-copy">Lima anggota, lima cerita, dan cita-cita yang berbeda. Yuk, kenali anggota kelompok kami lebih dekat.</p>
+    </section>
+
+    <section class="member-grid" aria-label="Biodata anggota kelompok">
+      <article class="member-card">
+        <img class="member-photo" src="fototugasuiux/dhiasrahma.jpeg" alt="Foto Dhias Rahma Aindira" loading="lazy">
+        <div class="member-content">
+          <span class="member-number">ANGGOTA 01</span>
+          <h2>Dhias Rahma Aindira</h2>
+          <dl class="member-details">
+            <dt>NIM</dt><dd>0110226162</dd>
+            <dt>Kelas</dt><dd>TI01</dd>
+            <dt>Fun fact</dt><dd>Punya asma, tapi hobinya hiking.</dd>
+          </dl>
+          <p class="dream"><span>Cita-cita</span>Psikiater &amp; desainer</p>
+        </div>
+      </article>
+
+      <article class="member-card">
+        <img class="member-photo" src="fototugasuiux/devinanursiti.jpeg" alt="Foto Devina Nursiti Hodijah" loading="lazy">
+        <div class="member-content">
+          <span class="member-number">ANGGOTA 02</span>
+          <h2>Devina Nursiti Hodijah</h2>
+          <dl class="member-details">
+            <dt>NIM</dt><dd>0110226128</dd>
+            <dt>Kelas</dt><dd>TI01</dd>
+            <dt>Fun fact</dt><dd>Suka makan.</dd>
+          </dl>
+          <p class="dream"><span>Cita-cita</span>Jadi orang kaya</p>
+        </div>
+      </article>
+
+      <article class="member-card">
+        <img class="member-photo" src="fototugasuiux/daviskresna.jpeg" alt="Foto Davis Kresna Hadi" loading="lazy">
+        <div class="member-content">
+          <span class="member-number">ANGGOTA 03</span>
+          <h2>Davis Kresna Hadi</h2>
+          <dl class="member-details">
+            <dt>NIM</dt><dd>0110226161</dd>
+            <dt>Kelas</dt><dd>TI01</dd>
+            <dt>Fun fact</dt><dd>Adalah pokoknya.</dd>
+          </dl>
+          <p class="dream"><span>Cita-cita</span>Full Stack</p>
+        </div>
+      </article>
+
+      <article class="member-card">
+        <img class="member-photo" src="fototugasuiux/dhilanradya.jpeg" alt="Foto Dhilan Radya Irawan" loading="lazy">
+        <div class="member-content">
+          <span class="member-number">ANGGOTA 04</span>
+          <h2>Dhilan Radya Irawan</h2>
+          <dl class="member-details">
+            <dt>NIM</dt><dd>0110226026</dd>
+            <dt>Kelas</dt><dd>TI01</dd>
+            <dt>Fun fact</dt><dd>Kalau datang, suka telat.</dd>
+          </dl>
+          <p class="dream"><span>Cita-cita</span>CEO</p>
+        </div>
+      </article>
+
+      <article class="member-card">
+        <img class="member-photo" src="fototugasuiux/darmasatria.jpeg" alt="Foto Darma Satria Ramadhan" loading="lazy">
+        <div class="member-content">
+          <span class="member-number">ANGGOTA 05</span>
+          <h2>Darma Satria Ramadhan</h2>
+          <dl class="member-details">
+            <dt>NIM</dt><dd>0110226178</dd>
+            <dt>Kelas</dt><dd>TI01</dd>
+            <dt>Fun fact</dt><dd>Sering podcast sama diri sendiri.</dd>
+          </dl>
+          <p class="dream"><span>Cita-cita</span>Presiden</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell">
+      <p>Kelompok 6 · Praktikum Dasar-Dasar HTML · TI01</p>
+    </div>
+  </footer>
+</body>
+</html>
